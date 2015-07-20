@@ -24,20 +24,20 @@ class ImageButtons extends Button {
       case 0:    //Menú pricipal
         if(pressed && (ID<=5)) {
           switch(ID) {
-            case 0:      //Submenú Jaqaru
-              activity = 1;
-              break;
-            case 1:      //Submenú Aymara
+            case 0:      //Submenú Aymara
               activity = 40;
               break;
-            case 2:      //Submenú Matsiguenka
-              activity = 79;
+            case 1:      //Submenú Jaqaru
+              activity = 1;
               break;
-            case 3:      //Submenú Quechua
+            case 2:      //Submenú Quechua
               activity = 118;
               break;
-            case 4:      //Submenú Shipibo
+            case 3:      //Submenú Shipibo
               activity = 157;
+              break;
+            case 4:      //Submenú Matsiguenka
+              activity = 79;
               break;
             case 5:      //Submenú Yine
               activity = 196;
