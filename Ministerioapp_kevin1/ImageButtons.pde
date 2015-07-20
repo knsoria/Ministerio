@@ -1,0 +1,96 @@
+class ImageButtons extends Button {
+  PImage base;
+  PImage down;
+  PImage currentimage;
+  int modo;
+  int ID;
+
+  ImageButtons(int iID, int imodo, int ix, int iy, int iw, int ih, PImage ibase, PImage idown){
+    ID = iID;
+    x = ix;
+    y = iy;
+    w = iw;
+    h = ih;
+    modo = imodo;
+    base = ibase;
+    down = idown;
+    currentimage = base;
+  }
+  
+  void update() {
+    over();
+    pressed();
+    switch(0){
+      case 0:    //Menú pricipal
+        if(pressed && (ID<=5)) {
+          switch(ID) {
+            case 0:      //Submenú Jaqaru
+              activity = 1;
+              break;
+            case 1:      //Submenú Aymara
+              activity = 40;
+              break;
+            case 2:      //Submenú Matsiguenka
+              activity = 79;
+              break;
+            case 3:      //Submenú Quechua
+              activity = 118;
+              break;
+            case 4:      //Submenú Shipibo
+              activity = 157;
+              break;
+            case 5:      //Submenú Yine
+              activity = 196;
+              break;
+          }
+          currentimage = down;
+        }
+        else {
+          currentimage = base;
+        }
+        break;
+      case 1:    //Submenú
+        break;
+      case 2:    //Adelantar
+        if(pressed) {
+          activity++;
+          currentimage = down;
+        } 
+        else {
+          currentimage = base;
+        }
+        break;
+      case 3:    //Regresar
+        if(pressed) {
+          activity--;
+          currentimage = down;
+        } 
+        else {
+          currentimage = base;
+        }
+        break;
+      case 4:    //Mostrar texto
+        if(pressed){
+          currentimage = down;
+        }
+        else {
+          currentimage = base;
+        }
+        break;
+      case 5:    //Audio
+        break;
+    }
+  }
+  
+  void over(){
+    if( overRect(x, y, w, h) ) {
+      over = true;
+    } else {
+      over = false;
+    }
+  }
+  
+  void display(){
+    image(currentimage, x, y, w, h);
+  }
+}
