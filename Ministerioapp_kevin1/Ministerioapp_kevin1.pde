@@ -39,7 +39,7 @@ void draw(){
             if(millis()<2000){
               background(0);
             }
-            else if(millis()<4000){
+            else if(millis()<3000){
                 background(255);
                 imageMode(CENTER);
                 image(imagenIntro,anchoGlobal/2,altoGlobal/2,imagenIntro.width*anchoGlobal/1360,imagenIntro.height*anchoGlobal/1360);
@@ -64,13 +64,12 @@ void draw(){
         }
       break;
     case 1:    // Submenú || Jaqaru
-      displaySubmenu1();
+      background(255,0,0);
+      text("Submenú Jaqaru",anchoGlobal/2,altoGlobal/2);
       break; 
     case 2:    // Submenú || Jaqaru || Saludándonos || 1
-      displayConociendonos1();
       break;
     case 3:    // Submenú || Jaqaru || Saludándonos || 2
-      displayMadretierra1();
       break;
     case 4:    // Submenú || Jaqaru || Saludándonos || 3
       break;
@@ -145,6 +144,8 @@ void draw(){
     case 39:   // Submenú || Jaqaru || Abecedario || 1
       break;
     case 40:   // Submenú || Aymara
+      background(255,0,0);
+      text("Submenú Aymara",anchoGlobal/2,altoGlobal/2);
       break; 
     case 41:   // Submenú || Aymara || Saludándonos || 1
       break;
@@ -222,6 +223,8 @@ void draw(){
       break;
     case 78:   // Submenú || Aymara || Abecedario || 1
     case 79:   // Submenú || Matsiguenka
+      background(255,0,0);
+      text("Submenú Matsiguenka",anchoGlobal/2,altoGlobal/2);
       break; 
     case 80:   // Submenú || Matsiguenka || Saludándonos || 1
       break;
@@ -375,7 +378,10 @@ void draw(){
     case 155:  // Submenú || Matsiguenka || Animales || 3
       break;
     case 156:  // Submenú || Matsiguenka || Abecedario || 1
+      break;
     case 157:  // Submenú || Quechua
+      background(255,0,0);
+      text("Submenú Quechua",anchoGlobal/2,altoGlobal/2);
       break; 
     case 158:  // Submenú || Quechua || Saludándonos || 1
       break;
@@ -452,7 +458,10 @@ void draw(){
     case 194:  // Submenú || Quechua || Animales || 3
       break;
     case 195:  // Submenú || Quechua || Abecedario || 1
+      break;
     case 196:  // Submenú || Shipibo
+      background(255,0,0);
+      text("Submenú Shipibo",anchoGlobal/2,altoGlobal/2);
       break; 
     case 197:  // Submenú || Shipibo || Saludándonos || 1
       break;
@@ -529,7 +538,10 @@ void draw(){
     case 233:  // Submenú || Shipibo || Animales || 3
       break;
     case 234:  // Submenú || Shipibo || Abecedario || 1
+      break;
     case 235:  // Submenú || Yine
+      background(255,0,0);
+      text("Submenú Yine",anchoGlobal/2,altoGlobal/2);
       break; 
     case 236:  // Submenú || Yine || Saludándonos || 1
       break;
@@ -608,103 +620,7 @@ void draw(){
     case 273:  // Submenú || Yine || Abecedario || 1
       break;
     default:
+      activity = 0;
       break;
   }
-}
-
-
-
-//Subrutinas para la lengua0
-/////////////////////////////////////////////////////////////////////////
-void displaySubmenu1(){
-  submenu1();
-  menuButtons[5].update();
-  menuButtons[5].display();
-}
-
-void displayConociendonos1(){
-  conociendonos1();
-  menuButtons[5].update();
-  menuButtons[5].display();
-  
-}
-
-void displayMadretierra1(){
-  madretierra1();
-}
-
-void displayAnimales1(){
-
-}
-
-void displayCantemos1(){
-
-}
-
-void displayVerbos1(){
-
-}
-
-void displayAbecedario1(){
-
-}
-
-//subrutinas para la lengua1
-void displaySubmenu2(){
-  submenu2();
-  menuButtons[1].update();
-  menuButtons[1].display();
-}
-
-void displayConociendonos2(){
-  conociendonos2();
-  menuButtons[2].update();
-  menuButtons[2].display();
-}
-
-void displayMadretierra2(){
-  madretierra2();
-}
-
-void displayAnimales2(){
-
-}
-
-void displayCantemos2(){
-
-}
-
-void displayVerbos2(){
-
-}
-
-void displayAbecedario2(){
-
-}
-
-//funciones de cada display de la lengua0
-void submenu1(){
-  background(255,0,0);
-}
-
-void conociendonos1(){
-  background(0,255,0);
-}
-
-void madretierra1(){
-  background(0,0,255);
-}
-
-//funciones de cada display de la lengua1
-
-void submenu2(){
-  background(255,0,0);
-}
-
-void conociendonos2(){
-  background(0,255,0);
-}
-
-void madretierra2(){
-  background(0,0,255);
 }
