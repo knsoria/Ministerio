@@ -51,9 +51,7 @@ class ImageButtons extends Button {
           currentimage = base;
         }
         break;
-      case 1:    //Submenú
-        break;
-      case 2:    //Adelantar
+      case 1:    //Adelantar
         if(pressed) {
           activity++;
           currentimage = down;
@@ -62,7 +60,7 @@ class ImageButtons extends Button {
           currentimage = base;
         }
         break;
-      case 3:    //Regresar
+      case 2:    //Regresar
         if(pressed) {
           activity--;
           currentimage = down;
@@ -71,7 +69,7 @@ class ImageButtons extends Button {
           currentimage = base;
         }
         break;
-      case 4:    //Mostrar texto
+      case 3:    //Mostrar texto
         if(pressed){
           currentimage = down;
         }
@@ -79,7 +77,7 @@ class ImageButtons extends Button {
           currentimage = base;
         }
         break;
-      case 5:    //Audio
+      case 4:    //Audio
         break;
     }
   }

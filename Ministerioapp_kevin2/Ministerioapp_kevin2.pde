@@ -7,7 +7,7 @@ lengua4=matshiguenka
 lengua5=yine
 */
 
-PFont fontMenu;
+PFont fontMenu,fontsubMenu;
 PImage imagenMin;
 PImage imagenIntro;
 
@@ -49,13 +49,16 @@ void setup(){
     alfa[i]=escalador[i]*anchoGlobal/(8*file[i].width);
     menuButtons[i] = new ImageButtons(i,0,int(((3+2*i)*anchoGlobal/16)-(alfa[i]*file[i].width)/2),int(modificadorvert[i]*((altoGlobal/2)-(alfa[i]*file[i].height)/2)),int(alfa[i]*file[i].width),int(alfa[i]*file[i].height),file[i],file[i]); 
   }
-  for(int i=0;i<6;i++){
-    for(int j=0;i<6;i++){
-      int k=6*(i)+(j);
+  
+  for(int i=0;i<SUBMENU.length;i++){
+    for(int j=0;j<SUBMENU[0].length;j++){
+      int k = (6*i)+j;
       submenuButtons[k] = new SqButtons(k,SUBMENU[i][j],submenu[j],int(anchoGlobal/9),int(altoGlobal/13));
     }
   }
+  
   fontMenu = loadFont("Haettenschweiler-48.vlw");
+  fontsubMenu = loadFont("CourierNew36.vlw");
   //agregar otro 
 }
 
@@ -64,13 +67,13 @@ void draw(){
     case 0:    // Menú principial ||Jaqaru Aymara Matsiguenka Quechua Shipibo Yine
         //Función de entrada
         if (intro) {
-            if(millis()<2000){
+            if(millis()<1000){
               background(0);
               imageMode(CENTER);
               image(imagenMin,anchoGlobal/2,altoGlobal/2,imagenMin.width*anchoGlobal/1360,imagenMin.height*anchoGlobal/1360);
               imageMode(CORNER);
             }
-            else if(millis()<3000){
+            else if(millis()<2000){
                 background(#F20000);
                 imageMode(CENTER);
                 image(imagenIntro,anchoGlobal/2,altoGlobal/2,imagenIntro.width*anchoGlobal/1360,imagenIntro.height*anchoGlobal/1360);
@@ -90,13 +93,16 @@ void draw(){
           }
           for(int i=0;i<menuButtons.length;i++){
             menuButtons[i].update();
-            menuButtons[i].display();   
+            menuButtons[i].display();  
           }
         }
       break;
     case 1:    // Submenú || Aymara
-      background(238);
-      text("Submenú Aymara",anchoGlobal/2,altoGlobal/2);
+    background(238);
+      for(int i=0;i<6;i++){
+        submenuButtons[i].update();
+        submenuButtons[i].display();  
+      }
       break; 
     case 2:    // Submenú || Aymara || Saludándonos || 1
       background(255);
@@ -214,7 +220,10 @@ void draw(){
       break;
     case 40:   // Submenú || Jaqaru
       background(238);
-      text("Submenú Jaqaru",anchoGlobal/2,altoGlobal/2);
+      for(int i=6;i<12;i++){
+        submenuButtons[i].update();
+        submenuButtons[i].display();  
+      }
       break; 
     case 41:   // Submenú || Jaqaru || Saludándonos || 1
       background(255);
@@ -332,7 +341,10 @@ void draw(){
       break;
     case 79:   // Submenú || Quechua
       background(238);
-      text("Submenú Quechua",anchoGlobal/2,altoGlobal/2);
+      for(int i=12;i<18;i++){
+        submenuButtons[i].update();
+        submenuButtons[i].display();  
+      }
       break; 
     case 80:   // Submenú || Quechua || Saludándonos || 1
       background(255);
@@ -450,7 +462,10 @@ void draw(){
       break;
     case 118:  // Submenú || Shipibo
       background(238);
-      text("Submenú Shipibo",anchoGlobal/2,altoGlobal/2);
+      for(int i=18;i<24;i++){
+        submenuButtons[i].update();
+        submenuButtons[i].display();  
+      }
       break; 
     case 119:  // Submenú || Shipibo || Saludándonos || 1
       background(255);
@@ -568,7 +583,10 @@ void draw(){
       break;
     case 157:  // Submenú || Matsiguenka
       background(238);
-      text("Submenú Matsiguenka",anchoGlobal/2,altoGlobal/2);
+      for(int i=24;i<30;i++){
+        submenuButtons[i].update();
+        submenuButtons[i].display();  
+      }
       break; 
     case 158:  // Submenú || Matsiguenka || Saludándonos || 1
       background(255);
@@ -686,7 +704,10 @@ void draw(){
       break;
     case 196:  // Submenú || Yine
       background(238);
-      text("Submenú Yine",anchoGlobal/2,altoGlobal/2);
+      for(int i=30;i<36;i++){
+        submenuButtons[i].update();
+        submenuButtons[i].display();  
+      }
       break; 
     case 197:  // Submenú || Yine || Saludándonos || 1
       background(255);
