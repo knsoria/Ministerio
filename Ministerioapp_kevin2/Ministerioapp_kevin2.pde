@@ -10,6 +10,8 @@ lengua5=yine
 PFont fontMenu,fontsubMenu;
 PImage imagenMin;
 PImage imagenIntro;
+PImage imagenRight;
+PImage imagenLeft;
 
 String[] lenguas = {"Aymara","Jaqaru","Quechua","Shipibo","Matsiguenka","Yine"}; 
 boolean intro = true;
@@ -21,7 +23,7 @@ int n=6;
 int activity = 0;
 
 PImage[] file = new PImage[n];
-ImageButtons[] menuButtons = new ImageButtons[n];
+ImageButtons[] menuButtons = new ImageButtons[n+2];
 float[] alfa = new float[n];
 float[] escalador={1.0,0.84,0.87,1.15,0.84,0.98};
 float[] modificadorvert={1.0,1.02,1.02,1.05,1.06,0.95};
@@ -57,8 +59,13 @@ void setup(){
     }
   }
   
+  imagenRight=loadImage("right.png");
+  menuButtons[6] = new ImageButtons(6,1,int(anchoGlobal/2),0,int(anchoGlobal/10),int(altoGlobal),imagenRight,imagenRight);  //Adelantar
+  imagenLeft=loadImage("left.png");
+  menuButtons[7] = new ImageButtons(7,2,0,0,int(anchoGlobal/10),int(altoGlobal),imagenLeft,imagenLeft);   //Retrasar
+  
   fontMenu = loadFont("Haettenschweiler-48.vlw");
-  fontsubMenu = loadFont("CourierNew36.vlw");
+  //fontsubMenu = loadFont("CourierNew36.vlw");
   //agregar otro 
 }
 
@@ -91,9 +98,9 @@ void draw(){
           for(int i=0;i<lenguas.length;i++){
             text(lenguas[i],factorDesp[i]*int(((3+2*i)*anchoGlobal/16)-(alfa[i]*file[i].width)/2),int((1.1*(altoGlobal/2)+(alfa[1]*file[1].height)/2)));  
           }
-          for(int i=0;i<menuButtons.length;i++){
+          for(int i=0;i<6;i++){
             menuButtons[i].update();
-            menuButtons[i].display();  
+            menuButtons[i].display(); 
           }
         }
       break;
@@ -106,6 +113,8 @@ void draw(){
       break; 
     case 2:    // Submenú || Aymara || Saludándonos || 1
       background(255);
+      menuButtons[6].display();
+      menuButtons[7].display();
       break;
     case 3:    // Submenú || Aymara || Saludándonos || 2
       background(255);
