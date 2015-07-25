@@ -29,12 +29,12 @@ float[] factorDesp={1.5,1.195,1.14,1.14,1.08,1.085};
 
 SqButtons[] submenuButtons = new SqButtons[36];
 String[] submenu = {"Saludándonos",      "Conociéndonos",  "Estamos viviendo",  "Madre tierra",  "Animales",  "Abecedario"}; 
-String[] SUBMENU = {"Aruntasipxañani",   "Uñt’asipxañani", "Jakasisipxktanwa",  "Pachamama",     "Uywanaka",  "Abecedario"
-                    "Amruchatxi sashtna","Illt'ishitna",   "Jakasw jakktna",    "Uriqmama",      "Uywkuna",   "Awantqillqa"};
-                    "",                  "",               "",                  "",              "",          ""};
-                    "",                "",               "",                  "",              "",          ""};
-                    "",                "",               "",                  "",              "",          ""};
-                    "",                "Wumatkakanu",    "",                  "Madre tierra",  "Animales",  "Gigima"};
+String[][] SUBMENU = {{"Aruntasipxañani",   "Uñt’asipxañani", "Jakasisipxktanwa",  "Pachamama",     "Uywanaka",  "Abecedario"  },
+                      {"Amruchatxi sashtna","Illt'ishitna",   "Jakasw jakktna",    "Uriqmama",      "Uywkuna",   "Awantqillqa" },
+                      {"",                  "",               "",                  "",              "",          ""            },
+                      {"",                "",               "",                  "",              "",          ""              },
+                      {"",                "",               "",                  "",              "",          ""              },
+                      {"",                "Wumatkakanu",    "",                  "Madre tierra",  "Animales",  "Gigima"        }};
 
 void setup(){
   size(displayWidth,displayHeight);
@@ -49,10 +49,10 @@ void setup(){
     alfa[i]=escalador[i]*anchoGlobal/(8*file[i].width);
     menuButtons[i] = new ImageButtons(i,0,int(((3+2*i)*anchoGlobal/16)-(alfa[i]*file[i].width)/2),int(modificadorvert[i]*((altoGlobal/2)-(alfa[i]*file[i].height)/2)),int(alfa[i]*file[i].width),int(alfa[i]*file[i].height),file[i],file[i]); 
   }
-  for(int i=0;i<6length;i++){
+  for(int i=0;i<6;i++){
     for(int j=0;i<6;i++){
-      byte k=6*(i)+(j);
-      submenuButtons[k] = new SqButtons(SUBMENU[i,j],submenu[j],k);
+      int k=6*(i)+(j);
+      submenuButtons[k] = new SqButtons(k,SUBMENU[i][j],submenu[j],int(anchoGlobal/9),int(altoGlobal/13));
     }
   }
   fontMenu = loadFont("Haettenschweiler-48.vlw");

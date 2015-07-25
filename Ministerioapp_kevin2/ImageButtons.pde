@@ -22,7 +22,7 @@ class ImageButtons extends Button {
   void update() {
     over();
     pressed();
-    switch(0){
+    switch(modo){
       case 0:    //Menú pricipal
         if(pressed && (ID<=5)) {
           switch(ID) {
