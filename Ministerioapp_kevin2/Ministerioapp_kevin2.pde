@@ -28,10 +28,10 @@ float[] modificadorvert={1.0,1.02,1.02,1.05,1.06,0.95};
 float[] factorDesp={1.5,1.195,1.14,1.14,1.08,1.085};
 
 SqButtons[] submenuButtons = new SqButtons[36];
-String[] submenu = {"Saludándonos",    "Conociéndonos",  "Estamos viviendo",  "Madre tierra",  "Animales",  "Abecedario"}; 
-String[] SUBMENU = {"Aruntasipxañani", "Uñt’asipxañani", "Jakasisipxktanwa",  "Pachamama",     "Uywanaka",  "Abecedario"
-                    "",                "",               "",                  "",              "",          ""};
-                    "",                "",               "",                  "",              "",          ""};
+String[] submenu = {"Saludándonos",      "Conociéndonos",  "Estamos viviendo",  "Madre tierra",  "Animales",  "Abecedario"}; 
+String[] SUBMENU = {"Aruntasipxañani",   "Uñt’asipxañani", "Jakasisipxktanwa",  "Pachamama",     "Uywanaka",  "Abecedario"
+                    "Amruchatxi sashtna","Illt'ishitna",   "Jakasw jakktna",    "Uriqmama",      "Uywkuna",   "Awantqillqa"};
+                    "",                  "",               "",                  "",              "",          ""};
                     "",                "",               "",                  "",              "",          ""};
                     "",                "",               "",                  "",              "",          ""};
                     "",                "Wumatkakanu",    "",                  "Madre tierra",  "Animales",  "Gigima"};

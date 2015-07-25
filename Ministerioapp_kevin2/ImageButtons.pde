@@ -17,7 +17,6 @@ class ImageButtons extends Button {
     base = ibase;
     down = idown;
     currentimage = base;
-  
   }
   
   void update() {
