@@ -59,11 +59,6 @@ void setup(){
     }
   }
   
-  imagenRight=loadImage("right.png");
-  menuButtons[6] = new ImageButtons(6,1,int(anchoGlobal/2),0,int(anchoGlobal/10),int(altoGlobal),imagenRight,imagenRight);  //Adelantar
-  imagenLeft=loadImage("left.png");
-  menuButtons[7] = new ImageButtons(7,2,0,0,int(anchoGlobal/10),int(altoGlobal),imagenLeft,imagenLeft);   //Retrasar
-  
   fontMenu = loadFont("Haettenschweiler-48.vlw");
   //fontsubMenu = loadFont("CourierNew36.vlw");
   //agregar otro 
@@ -98,23 +93,13 @@ void draw(){
           for(int i=0;i<lenguas.length;i++){
             text(lenguas[i],factorDesp[i]*int(((3+2*i)*anchoGlobal/16)-(alfa[i]*file[i].width)/2),int((1.1*(altoGlobal/2)+(alfa[1]*file[1].height)/2)));  
           }
-          for(int i=0;i<6;i++){
-            menuButtons[i].update();
-            menuButtons[i].display(); 
-          }
         }
       break;
     case 1:    // Submenú || Aymara
     background(238);
-      for(int i=0;i<6;i++){
-        submenuButtons[i].update();
-        submenuButtons[i].display();  
-      }
       break; 
     case 2:    // Submenú || Aymara || Saludándonos || 1
       background(255);
-      menuButtons[6].display();
-      menuButtons[7].display();
       break;
     case 3:    // Submenú || Aymara || Saludándonos || 2
       background(255);
