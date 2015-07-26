@@ -1277,6 +1277,8 @@ void draw(){
       break;
     case 165:  // Submenú || Matsiguenka || Conociendonos || 5
       background(255);
+      menuButtons[6].update();
+      menuButtons[6].display();
       break;
     case 166:  // Submenú || Matsiguenka || Verbo: Cantar || 1
       background(255);
