@@ -2,6 +2,7 @@ class ImageButtons extends Button {
   PImage base;
   PImage down;
   PImage currentimage;
+  int objetos;
   int posicion;
   int modo;
   int ID;
@@ -20,12 +21,13 @@ class ImageButtons extends Button {
     currentimage = base;
   }
   
-  ImageButtons(int imodo, int iposicion, PImage ibase, PImage idown){
-    modo = imodo;
+  ImageButtons(int iobjetos, int iposicion, PImage ibase, PImage idown){
+    objetos = iobjetos;
+    modo = 3;
     posicion = iposicion;
     base = ibase;
     down = idown;
-    switch(modo){
+    switch(objetos){
       case 0:    //2 sujetos
         switch(posicion){
           case 0:
@@ -127,14 +129,14 @@ class ImageButtons extends Button {
         }
         break;
       case 3:    //Mostrar texto
-        if(pressed){
-          currentimage = down;
+        if(last_activity==activity) {
+          if(pressed){
+            currentimage = down;  //evento activador
+          }
         }
         else {
           currentimage = base;
         }
-        break;
-      case 4:    //Audio
         break;
     }
   }

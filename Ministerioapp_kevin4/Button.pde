@@ -10,6 +10,7 @@ class Button
     
     if(beforepressed && !mousePressed){
       pressed = true;
+      last_activity = activity;
     } else {
       pressed = false;
     }   

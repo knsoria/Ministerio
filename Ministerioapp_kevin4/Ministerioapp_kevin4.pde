@@ -20,7 +20,7 @@ float anchoGlobal;
 float altoGlobal;
 
 int n=6, m=2;
-int activity = 0;
+int activity = 0, last_activity = 0;
 
 PImage[] file = new PImage[n];
 PImage[] aymara_file = new PImage[m];  //Aymara
@@ -167,6 +167,7 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      contenidoButtons[0].update();
       contenidoButtons[0].display();
       break;
     case 3:    // Submenú || Aymara || Saludándonos || 2
