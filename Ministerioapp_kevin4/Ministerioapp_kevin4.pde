@@ -19,11 +19,25 @@ boolean intro = true;
 float anchoGlobal;
 float altoGlobal;
 
-int n=6;
+int n=6, m=2;
 int activity = 0;
 
 PImage[] file = new PImage[n];
+PImage[] aymara_file = new PImage[m];  //Aymara
+PImage[] aymara_base = new PImage[2];
+PImage[] jaqaru_file = new PImage[m];  //Jaqaru
+PImage[] jaqaru_base = new PImage[2];
+PImage[] quechua_file = new PImage[m];  //Quechua
+PImage[] quechua_base = new PImage[2];
+PImage[] shipibo_file = new PImage[m];  //Shipibo
+PImage[] shipibo_base = new PImage[2]; 
+PImage[] matsiguenka_file = new PImage[m];  //Matsiguenka
+PImage[] matsiguenka_base = new PImage[2];
+PImage[] yine_file = new PImage[m];  //Yine
+PImage[] yine_base = new PImage[2];
+
 ImageButtons[] menuButtons = new ImageButtons[n+4];
+ImageButtons[] contenidoButtons = new ImageButtons[m*6];
 float[] alfa = new float[n];
 float[] escalador={1.0,0.84,0.87,1.15,0.84,0.98};
 float[] modificadorvert={1.0,1.02,1.02,1.05,1.06,0.95};
@@ -63,13 +77,36 @@ void setup(){
     }
   }
   
+  for(int i=0;i<m;i++){
+    if(i<2){
+      //aymara_base[i]=loadImage(lenguas[0]+"_base"+str(i)+".png");
+      jaqaru_base[i]=loadImage(lenguas[1]+"_base"+str(i)+".png"); /**/
+      //quechua_base[i]=loadImage(lenguas[2]+"_base"+str(i)+".png");
+      //shipibo_base[i]=loadImage(lenguas[3]+"_base"+str(i)+".png");
+      //matsiguenka_base[i]=loadImage(lenguas[4]+"_base"+str(i)+".png");
+      //yine_base[i]=loadImage(lenguas[5]+"_base"+str(i)+".png");
+    }
+    //aymara_file[i]=loadImage(lenguas[0]+str(i)+".png");
+    jaqaru_file[i]=loadImage(lenguas[1]+str(i)+".png");
+    //quechua_file[i]=loadImage(lenguas[2]+str(i)+".png");
+    //shipibo_file[i]=loadImage(lenguas[3]+str(i)+".png");
+    //matsiguenka_file[i]=loadImage(lenguas[4]+str(i)+".png");
+    //yine_file[i]=loadImage(lenguas[5]+str(i)+".png");
+  }
+  
+//  //int i=file.length;
+//  //Imagenes Aymara
+  //Imagenes Jaqaru
+  contenidoButtons[0] = new ImageButtons(0,0,jaqaru_base[0],jaqaru_file[1]);
+  
+  
   imagenRight=loadImage("right.png");
   beta = imagenRight.height/altoGlobal;
   menuButtons[7] = new ImageButtons(7,1,int(anchoGlobal-(imagenRight.width/beta)),0,int(imagenRight.width/beta),int(altoGlobal),imagenRight,imagenRight);  //Adelantar
   imagenLeft=loadImage("left.png");
   menuButtons[6] = new ImageButtons(6,2,0,0,int(imagenRight.width/beta),int(altoGlobal),imagenLeft,imagenLeft);   //Retrasar
-  menuButtons[8] = new ImageButtons(8,2,0,0,int(imagenRight.width/beta),int(altoGlobal),imagenLeft,imagenLeft);   //Retrasar al submenu principal
-  menuButtons[9] = new ImageButtons(9,2,0,0,int(imagenRight.width/beta),int(altoGlobal),imagenLeft,imagenLeft);   //Retrasar al submenu principal
+  menuButtons[8] = new ImageButtons(8,2,0,0,int(imagenRight.width/beta),int(altoGlobal),imagenLeft,imagenLeft);   //Retrasar al submenu
+  menuButtons[9] = new ImageButtons(9,2,0,0,int(imagenRight.width/beta),int(altoGlobal),imagenLeft,imagenLeft);   //Retrasar al menu principal
 
   fontMenu = loadFont("Haettenschweiler-48.vlw");
   fontsubMenu = loadFont("CourierNew36.vlw");
@@ -130,6 +167,7 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      contenidoButtons[0].display();
       break;
     case 3:    // Submenú || Aymara || Saludándonos || 2
       background(255);
