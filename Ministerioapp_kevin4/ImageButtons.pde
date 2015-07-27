@@ -29,16 +29,15 @@ class ImageButtons extends Button {
     base = ibase;
     down = idown;
     
-    float  k = ibase.height/altoGlobal;
-    w = int(ibase.width/k);
-    h = int(altoGlobal);
+    w = ibase.width;
+    h = ibase.height;
     switch(objetos){
       case 0:    //2 sujetos
         switch(posicion){
           case 0:
             //función para hallar posición x e y
             x = int(anchoGlobal/2);
-            y = 0;
+            y = int(altoGlobal/2);
             break;
           case 1:
             break;
