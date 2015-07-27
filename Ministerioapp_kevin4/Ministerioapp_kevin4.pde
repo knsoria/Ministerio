@@ -54,12 +54,12 @@ String[][] SUBMENU = {{"Aruntasipxañani","Uñt’asipxañani","Jakasisipxktanwa
                       {"Walukakanu","Wumatkakanu","Estamos viviendo","Madre tierra","Animales","Wsikalwatanu"}};
 
 void setup(){
-//  size(displayWidth,displayHeight);
-//  anchoGlobal = displayWidth;
-//  altoGlobal = displayHeight;
-  size(720,480);
-  anchoGlobal = 720;
-  altoGlobal = 480;
+  size(displayWidth,displayHeight);
+  anchoGlobal = displayWidth;
+  altoGlobal = displayHeight;
+//  size(720,480);
+//  anchoGlobal = 720;
+//  altoGlobal = 480;
   imagenMin=loadImage("mincultura.png");
   imagenIntro=loadImage("nombre.png");
   orientation(LANDSCAPE);
