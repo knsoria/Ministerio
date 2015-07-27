@@ -6,6 +6,7 @@ class ImageButtons extends Button {
   int posicion;
   int modo;
   int ID;
+  boolean dependencia;
   //boolean pageact;
   //boolean pagenew;
 
@@ -21,13 +22,14 @@ class ImageButtons extends Button {
     currentimage = base;
   }
   
-  ImageButtons(int iID,int iobjetos, int iposicion, PImage ibase, PImage idown){
+  ImageButtons(int iID,int iobjetos, int iposicion, PImage ibase, PImage idown, boolean idependencia){
     ID = iID;
     objetos = iobjetos;
     modo = 3;
     posicion = iposicion;
     base = ibase;
     down = idown;
+    dependencia = idependencia;
     
     float  k = anchoGlobal/(3*ibase.width);
     w = int(ibase.width*k);
