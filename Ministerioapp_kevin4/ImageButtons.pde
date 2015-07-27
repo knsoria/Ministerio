@@ -2,7 +2,7 @@ class ImageButtons extends Button {
   PImage base;
   PImage down;
   PImage currentimage;
-  int objetos;
+  int objetos;  //#
   int posicion;
   int modo;
   int ID;
@@ -21,12 +21,16 @@ class ImageButtons extends Button {
     currentimage = base;
   }
   
-  ImageButtons(int iobjetos, int iposicion, PImage ibase, PImage idown){
+  ImageButtons(int iID,int iobjetos, int iposicion, PImage ibase, PImage idown){
+    ID = iID;
     objetos = iobjetos;
     modo = 3;
     posicion = iposicion;
     base = ibase;
     down = idown;
+    
+    w = ibase.width;
+    h = ibase.height;
     switch(objetos){
       case 0:    //2 sujetos
         switch(posicion){
@@ -34,14 +38,20 @@ class ImageButtons extends Button {
             //función para hallar posición x e y
             x = int(anchoGlobal/2);
             y = int(altoGlobal/2);
-            w = ibase.width;
-            h = ibase.height;
             break;
           case 1:
             break;
         }
         break;
       case 1:    //3 sujetos
+        switch(posicion){
+          case 0:
+            break;
+          case 1:
+            break;
+          case 2:
+            break;
+        }
         break;
       case 2:    //2 objetos
         break;
@@ -132,6 +142,7 @@ class ImageButtons extends Button {
         if(last_activity==activity) {
           if(pressed){
             currentimage = down;  //evento activador
+            //reproducir sonido por ID
           }
         }
         else {
