@@ -106,8 +106,6 @@ class ImageButtons extends Button {
           currentimage = base;
         }
         break;
-      case 4:    //Audio
-        break;
     }
   }
   
