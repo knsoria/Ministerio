@@ -22,6 +22,7 @@ float beta;
 
 int n=6, m=44;
 int activity = 0, last_activity = 0;
+boolean bloqueado = false;
 
 PImage[] file = new PImage[n];
 PImage[] aymara_file = new PImage[m];  //Aymara
@@ -166,13 +167,13 @@ void draw(){
     case 0:    // Menú principial ||Aymara Jaqaru Quechua Shipibo Matsiguenka Yine
         //Función de entrada
         if (intro) {
-            if(millis()<5000){
+            if(millis()<2000){
               background(0);
               imageMode(CENTER);
               image(imagenMin,anchoGlobal/2,altoGlobal/2,imagenMin.width*anchoGlobal/1360,imagenMin.height*anchoGlobal/1360);
               imageMode(CORNER);
             }
-            else if(millis()<10000){
+            else if(millis()<3000){
                 background(#F20000);
                 imageMode(CENTER);
                 image(imagenIntro,anchoGlobal/2,altoGlobal/2,imagenIntro.width*anchoGlobal/1360,imagenIntro.height*anchoGlobal/1360);
