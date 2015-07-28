@@ -56,7 +56,6 @@ String[][] SUBMENU = {{"Aruntasipxañani","Uñt’asipxañani","Jakasisipxktanwa
 
 void setup(){
   size(displayWidth,displayHeight);
-  
   anchoGlobal = displayWidth;
   altoGlobal = displayHeight;
 //  size(720,480);
@@ -79,10 +78,10 @@ void setup(){
     }
   }
   
-  for(int i=0;i<m-10;i++){
+  /*for(int i=0;i<m-10;i++){
     if(i<13){
       //aymara_base[i]=loadImage(lenguas[0]+"_base"+str(i)+".png");
-      jaqaru_base[i]=loadImage(lenguas[1]+"_base"+str(i)+".png"); /**/
+      jaqaru_base[i]=loadImage(lenguas[1]+"_base"+str(i)+".png"); 
       //quechua_base[i]=loadImage(lenguas[2]+"_base"+str(i)+".png");
       //shipibo_base[i]=loadImage(lenguas[3]+"_base"+str(i)+".png");
       //matsiguenka_base[i]=loadImage(lenguas[4]+"_base"+str(i)+".png");
@@ -97,12 +96,12 @@ void setup(){
   }
   for(int i=34;i<44;i++){
     jaqaru_file[i]=loadImage(lenguas[1]+str(i+36)+".png");
-  }
+  }*/
   
-  int i=0;
+  //int i=0;
 //  //Imagenes Aymara
   //Imagenes Jaqaru
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true);  //Saludandonos || 0 || Hola || Saludo
+  /*contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true);  //Saludandonos || 0 || Hola || Saludo
   contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true);  //Saludandonos || 1 || Hola || Respuesta
   contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true);  //Saludandonos || 2 || Chau || Despedida
   contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true);  //Saludandonos || 3 || Chau || Respuesta de despedida
@@ -117,7 +116,7 @@ void setup(){
   contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true);  //Conociéndonos || 12 || ¿Dónde vives? 
   contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true);  //Conociéndonos || 13 || Yo vivo en
   contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true);  //Conociéndonos || 14 || ¿A dónde estás yendo? 
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true);  //Conociéndonos || 15 || Estoy yendo a*/
+  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true);  //Conociéndonos || 15 || Estoy yendo a
   contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false);  //Estamos viviendo || 16 || Yo canto 
   contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false);  //Estamos viviendo || 17 || To canté
   contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false);  //Estamos viviendo || 18 || Yo cantaré
@@ -145,8 +144,8 @@ void setup(){
   contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[9],jaqaru_file[i++],false);  //Madre tierra || 34 || Sol
   contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[10],jaqaru_file[i++],false);  //Madre tierra || 35 || Luna 
   contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[11],jaqaru_file[i++],false);  //Madre tierra || 34 || Estrellas
-  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[12],jaqaru_file[i++],false);  //Madre tierra || 35 || Fuego 
-  
+  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[12],jaqaru_file[i++],false);  //Madre tierra || 35 || Fuego
+  */
   
   imagenRight=loadImage("right.png");
   beta = imagenRight.height/altoGlobal;
@@ -167,13 +166,13 @@ void draw(){
     case 0:    // Menú principial ||Aymara Jaqaru Quechua Shipibo Matsiguenka Yine
         //Función de entrada
         if (intro) {
-            if(millis()<2000){
+            if(millis()<5000){
               background(0);
               imageMode(CENTER);
               image(imagenMin,anchoGlobal/2,altoGlobal/2,imagenMin.width*anchoGlobal/1360,imagenMin.height*anchoGlobal/1360);
               imageMode(CORNER);
             }
-            else if(millis()<3000){
+            else if(millis()<10000){
                 background(#F20000);
                 imageMode(CENTER);
                 image(imagenIntro,anchoGlobal/2,altoGlobal/2,imagenIntro.width*anchoGlobal/1360,imagenIntro.height*anchoGlobal/1360);
