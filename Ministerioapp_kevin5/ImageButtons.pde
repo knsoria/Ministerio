@@ -78,9 +78,7 @@ class ImageButtons extends Button {
     }
     currentimage = base;
   }
-
-
-
+  
   void update() {
     over();
     pressed();
@@ -162,31 +160,12 @@ class ImageButtons extends Button {
         break;
       case 3:    //Mostrar texto
         if(last_activity==activity) {
-          if(dependencia == true){
-             if(posicion == 1 && bloqueado == false && pressed){
-              currentimage = down;  //evento activador
-              //reproducir sonido por ID
-            }
-            if(posicion != 1 && pressed){
-              bloqueado = false;
-              currentimage = down;  //evento activador
-              //reproducir sonido por ID
-            }
-          }
-          else{
-            if(pressed){
-              currentimage = down;  //evento activador
-              //reproducir sonido por ID
-              }
+          if(pressed){
+            currentimage = down;  //evento activador
+            //reproducir sonido por ID
           }
         }
         else {
-          if (dependencia == true) {
-            bloqueado = true;
-          }
-          else {
-            bloqueado = false;
-          }
           currentimage = base;
         }
         break;

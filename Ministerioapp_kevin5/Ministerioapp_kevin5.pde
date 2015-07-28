@@ -24,7 +24,6 @@ float beta;
 
 int n=6, m=44;
 int activity = 0, last_activity = 0;
-boolean bloqueado = false;
 
 PImage[] file = new PImage[n];
 PImage[] aymara_file = new PImage[m];  //Aymara
