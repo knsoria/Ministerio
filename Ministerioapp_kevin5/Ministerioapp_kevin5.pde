@@ -6,7 +6,9 @@ lengua3=shipibo
 lengua4=matshiguenka
 lengua5=yine
 */
-
+//import apwidgets.*; //libreria audio
+//APMediaPlayer a01; //objeto de audio
+int j;
 PFont fontMenu,fontsubMenu,fontsubmenu;
 PImage imagenMin;
 PImage imagenIntro;
