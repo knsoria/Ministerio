@@ -12,10 +12,11 @@ int j;
 PFont fontMenu,fontsubMenu,fontsubmenu;
 PImage imagenMin;
 PImage imagenIntro;
+PImage base_fondo;
 PImage imagenRight;
 PImage imagenLeft;
 
-String[] lenguas = {"Aymara","Jaqaru","Quechua","Shipibo","Matsiguenka","Yine"}; 
+String[] lenguas = {"Aimara","Jaqaru","Quechua","Shipibo","Matsiguenka","Yine"}; 
 boolean intro = true;
 
 float anchoGlobal;
@@ -55,6 +56,7 @@ void setup(){
 
   imagenMin=loadImage("mincultura.png");
   imagenIntro=loadImage("nombre.png");
+  base_fondo=loadImage("mosaico.png");
   orientation(LANDSCAPE);
   
   for(int i=0;i<file.length;i++){
@@ -103,13 +105,16 @@ void draw(){
                 background(#F20000);
                 imageMode(CENTER);
                 image(imagenIntro,anchoGlobal/2,altoGlobal/2,imagenIntro.width*anchoGlobal/1360,imagenIntro.height*anchoGlobal/1360);
-                imageMode(CORNER);
             }
             else { intro = false; }
         }
         //Función display
         else{
           background(69,90,140);
+          imageMode(CORNER);
+          for(int i=0;base_fondo.width*i<=anchoGlobal;i++){
+          image(base_fondo,base_fondo.width*i,altoGlobal-base_fondo.height,base_fondo.width,base_fondo.height);
+          }
           textFont(fontMenu,int(altoGlobal/16));
           fill(255);
           textAlign(CENTER);
