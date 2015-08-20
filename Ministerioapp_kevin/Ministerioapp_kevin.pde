@@ -311,11 +311,11 @@ void draw(){
       text("Estamos viviendo - verbo cantar 1ra persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
       textAlign(CENTER);
       
-      for(int i=7;i<=8;i++){
+      for(int i=7;i<=8;i++){     //Botones para adelantar y retroceder activity
         menuButtons[i].display();
         menuButtons[i].update();
       }
-      for(int i=0;i<3;i++){
+      for(int i=0;i<3;i++){      //Imagenes
         contenidoButtons[i].display();
         contenidoButtons[i].update();
       }
