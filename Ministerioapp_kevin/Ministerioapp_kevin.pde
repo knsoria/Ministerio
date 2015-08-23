@@ -23,6 +23,7 @@ boolean intro = true;
 
 float anchoGlobal;
 float altoGlobal;
+float ALFA;
 float beta;
 
 int n=6, m=34;
@@ -37,10 +38,6 @@ PImage[] jaqaru_base = new PImage[10];
 
 ImageButtons[] menuButtons = new ImageButtons[n+4];
 ImageButtons[] contenidoButtons = new ImageButtons[m*6];
-float[] alfa = new float[n];
-float[] escalador={1.0,0.84,0.87,1.15,0.84,0.98};
-float[] modificadorvert={1.0,1.02,1.02,1.05,1.06,0.95};
-float[] factorDesp={1.5,1.195,1.14,1.14,1.08,1.085};
 
 SqButtons[] submenuButtons = new SqButtons[36];
 String[] submenu = {"Saludándonos","Conociéndonos","Estamos viviendo","Madre tierra","Animales","Cantemos"}; 
@@ -82,8 +79,15 @@ void setup(){
   
   for(int i=0;i<file.length;i++){
     file[i]=loadImage("lengua"+str(i)+".png");
-    alfa[i]=escalador[i]*anchoGlobal/(8*file[i].width);
-    menuButtons[i] = new ImageButtons(i,0,int(((3+2*i)*anchoGlobal/16)-(alfa[i]*file[i].width)/2),int(modificadorvert[i]*((altoGlobal/2)-(alfa[i]*file[i].height)/3)),int(alfa[i]*file[i].width),int(alfa[i]*file[i].height),file[i],file[i]); 
+  }
+  
+  ALFA = anchoGlobal/(8*file[0].width);  //file[0].width & file[0].height standar
+  float ALFA_width = ALFA*file[0].width;
+  float ALFA_height = ALFA*file[0].height;
+  float ALFA_base_fondo = (base_fondo.width*ALFA);
+  
+  for(int i=0;i<file.length;i++){
+    menuButtons[i] = new ImageButtons(i,0,int((1+i)*anchoGlobal/8),int(altoGlobal-0.9*(ALFA_base_fondo)-(ALFA_height)),int(ALFA_width),int(ALFA_height),file[i],file[i]); 
   }
   
   for(int i=0;i<SUBMENU.length;i++){
@@ -92,7 +96,6 @@ void setup(){
       submenuButtons[k] = new SqButtons(k,SUBMENU[i][j],submenu[j],int(anchoGlobal/9),int(altoGlobal/13));
     }
   }
-  
   
   imagenRight=loadImage("right.png");
   beta = imagenRight.height/altoGlobal;
@@ -140,18 +143,17 @@ void draw(){
         else{
           background(69,90,140);
           imageMode(CORNER);
-          for(int i=0;base_fondo.width*i<=anchoGlobal;i++){
-          image(base_fondo,base_fondo.width*i,altoGlobal-base_fondo.height,base_fondo.width,base_fondo.height);
+          for(int i=0;base_fondo.width*ALFA*i<=anchoGlobal;i++){
+          image(base_fondo,base_fondo.width*ALFA*i,altoGlobal-(base_fondo.height*ALFA),base_fondo.width*ALFA,base_fondo.height*ALFA);
           }
           textFont(fontMenu,int(altoGlobal/16));
           fill(255);
-          textAlign(CENTER);
+          textAlign(CENTER, TOP);
           imageMode(CENTER);
           image(imagenMin,anchoGlobal/2,altoGlobal/4,imagenMin.width*anchoGlobal/800,imagenMin.height*anchoGlobal/800);
           imageMode(CORNER);
-          //textSize(altoGlobal/16);
           for(int i=0;i<6;i++){
-            text(lenguas[i],factorDesp[i]*int(((3+2*i)*anchoGlobal/16)-(alfa[i]*file[i].width)/2),int((1.1*(altoGlobal/2)+(alfa[1]*file[1].height)/1.5)));  
+            text(lenguas[i],int((3+2*i)*anchoGlobal/16),int(altoGlobal-(0.9*base_fondo.width*ALFA)));
           }
           for(int i=0;i<6;i++){
             menuButtons[i].update();
