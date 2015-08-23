@@ -205,10 +205,13 @@ class ImageButtons extends Button {
   }
   
   void over(){
-    if( overRect(x, y, w, h) ) {
-      over = true;
-    } else {
-      over = false;
+    if( modo == 3 ){
+      if( overRect(x, y, w/2, h) ) { over = true; }
+      else { over = false; }
+    }
+    else{
+      if( overRect(x, y, w, h) ) { over = true; }
+      else { over = false; }
     }
   }
   
