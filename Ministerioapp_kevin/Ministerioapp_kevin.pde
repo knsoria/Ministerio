@@ -38,6 +38,7 @@ PImage[] jaqaru_base = new PImage[10];
 
 ImageButtons[] menuButtons = new ImageButtons[n+4];
 ImageButtons[] contenidoButtons = new ImageButtons[m*6];
+float[] alfa = new float[n];
 
 SqButtons[] submenuButtons = new SqButtons[36];
 String[] submenu = {"Saludándonos","Conociéndonos","Estamos viviendo","Madre tierra","Animales","Cantemos"}; 
@@ -79,6 +80,7 @@ void setup(){
   
   for(int i=0;i<file.length;i++){
     file[i]=loadImage("lengua"+str(i)+".png");
+    alfa[i]=anchoGlobal/(8*file[i].width);
   }
   
   ALFA = anchoGlobal/(8*file[0].width);  //file[0].width & file[0].height standar
@@ -120,13 +122,13 @@ void draw(){
     case 0:    // Menú principial ||Jaqaru Aymara Matsiguenka Quechua Shipibo Yine
         //Función de entrada
         if (intro) {
-            if(millis()<5000){
+            if(millis()<3000){
               background(0);
               imageMode(CENTER);
               image(imagenMin,anchoGlobal/2,altoGlobal/2,imagenMin.width*anchoGlobal/1360,imagenMin.height*anchoGlobal/1360);
               imageMode(CORNER);
             }
-            else if(millis()<10000){
+            else if(millis()<5500){
                 background(#F20000);
                 imageMode(CENTER);
                 image(imagenIntro,anchoGlobal/2,altoGlobal/2,imagenIntro.width*anchoGlobal/1360,imagenIntro.height*anchoGlobal/1360);
@@ -146,19 +148,27 @@ void draw(){
           for(int i=0;base_fondo.width*ALFA*i<=anchoGlobal;i++){
           image(base_fondo,base_fondo.width*ALFA*i,altoGlobal-(base_fondo.height*ALFA),base_fondo.width*ALFA,base_fondo.height*ALFA);
           }
-          textFont(fontMenu,int(altoGlobal/16));
-          fill(255);
-          textAlign(CENTER, TOP);
           imageMode(CENTER);
           image(imagenMin,anchoGlobal/2,altoGlobal/4,imagenMin.width*anchoGlobal/800,imagenMin.height*anchoGlobal/800);
           imageMode(CORNER);
           for(int i=0;i<6;i++){
-            text(lenguas[i],int((3+2*i)*anchoGlobal/16),int(altoGlobal-(0.9*base_fondo.width*ALFA)));
-          }
-          for(int i=0;i<6;i++){
             menuButtons[i].update();
             menuButtons[i].display();
           }
+          float ALFA_base_fondo = (base_fondo.width*ALFA);
+          fill(50,200);
+          rectMode(CENTER);
+          rect(3*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.85*anchoGlobal/8, 33, 10); rect(5*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.85*anchoGlobal/8, 33, 10);
+          rect(7*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.9*anchoGlobal/8, 33, 10); rect(9*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.8*anchoGlobal/8, 33, 10);
+          rect(11*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 1.1*anchoGlobal/8, 33, 10); rect(13*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.6*anchoGlobal/8, 33, 10);
+          fill(255);
+          textAlign(CENTER, TOP);
+          textFont(fontMenu,int(altoGlobal/16));
+          for(int i=0;i<6;i++){
+            text(lenguas[i],int((3+2*i)*anchoGlobal/16),int(altoGlobal-(base_fondo.width*ALFA)));
+          }
+          textAlign(CENTER);
+          rectMode(CORNER);
         }
       break;
     case 1:    // Submenú || Aymara
