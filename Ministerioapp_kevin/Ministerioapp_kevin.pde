@@ -134,6 +134,7 @@ void draw(){
                 imageMode(CORNER);
                 j=0;
                 if(j==0){
+                  imagenMin=loadImage("Lema.png"); //Lema0 Negro || Lema Blanco
                   j=1;
                 }
             }
