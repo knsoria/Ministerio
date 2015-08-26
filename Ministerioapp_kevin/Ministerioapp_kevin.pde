@@ -14,6 +14,7 @@ PFont fontMenu,fontsubMenu,fontsubmenu,fontcancion;
 PImage imagenMin;
 PImage imagenIntro;
 PImage base_fondo;
+PImage cielo_fondo;
 PImage imagenRight;
 PImage imagenLeft;
 
@@ -75,6 +76,7 @@ void setup(){
   imagenMin=loadImage("mincultura.png");
   imagenIntro=loadImage("nombre.png");
   base_fondo=loadImage("mosaico.png");
+  cielo_fondo=loadImage("cielo.png");
   orientation(LANDSCAPE);
   
   for(int i=0;i<file.length;i++){
@@ -132,7 +134,6 @@ void draw(){
                 imageMode(CORNER);
                 j=0;
                 if(j==0){
-                  imagenMin=loadImage("letraslema.png");
                   j=1;
                 }
             }
@@ -142,25 +143,30 @@ void draw(){
         else{
           background(69,90,140);
           imageMode(CORNER);
+          float omega = (altoGlobal-(0.9*base_fondo.height*ALFA))/cielo_fondo.height;
+          for(int i=0;cielo_fondo.width*i<=anchoGlobal;i++){
+            image(cielo_fondo,cielo_fondo.width*i,0,cielo_fondo.width,cielo_fondo.height*omega);
+          }
           for(int i=0;base_fondo.width*ALFA*i<=anchoGlobal;i++){
             image(base_fondo,base_fondo.width*ALFA*i,altoGlobal-(base_fondo.height*ALFA),base_fondo.width*ALFA,base_fondo.height*ALFA);
           }
           imageMode(CENTER);
-          image(imagenMin,anchoGlobal/2,altoGlobal/4,imagenMin.width*anchoGlobal/800,imagenMin.height*anchoGlobal/800);
+          float tau = (0.9*anchoGlobal)/imagenMin.width;
+          image(imagenMin,anchoGlobal/2,altoGlobal/4,imagenMin.width*tau,imagenMin.height*tau);
           imageMode(CORNER);
           for(int i=0;i<6;i++){
             menuButtons[i].update();
             menuButtons[i].display();
           }
           float ALFA_base_fondo = (base_fondo.width*ALFA);
-          float teta[] = {0.85,0.85,0.9,0.8,1.1,0.6};
+          float theta[] = {0.85,0.85,0.9,0.8,1.1,0.6};
           //fill(50,200);
           rectMode(CENTER);
           textAlign(CENTER, TOP);
           textFont(fontMenu,int(altoGlobal/16));
           for(int i=0;i<6;i++){
             fill(50,200);
-            rect((3+2*i)*anchoGlobal/16 , altoGlobal-0.9*ALFA_base_fondo+2 , teta[i]*anchoGlobal/8 , 33, 10);
+            rect((3+2*i)*anchoGlobal/16 , altoGlobal-0.9*ALFA_base_fondo+2 , theta[i]*anchoGlobal/8 , 33, 10);
             fill(255);
             text(lenguas[i],int((3+2*i)*anchoGlobal/16),int(altoGlobal-(base_fondo.width*ALFA)));
           }
@@ -405,10 +411,8 @@ void draw(){
       text("Estamos viviendo - verbo cantar 3ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
       textAlign(CENTER);
       
-      for(int i=6;i<=7;i++){
-        menuButtons[i].display();
-        menuButtons[i].update();
-      }
+      menuButtons[6].update();      //Limite forzado
+      menuButtons[6].display();
       for(int i=15;i<18;i++){
         contenidoButtons[i].display();
         contenidoButtons[i].update();
@@ -907,11 +911,9 @@ void draw(){
       fill(98);
       text("Estamos viviendo - verbo cantar 3ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
       textAlign(CENTER);
-      
-      for(int i=6;i<=7;i++){
-        menuButtons[i].update();
-        menuButtons[i].display();
-      }
+
+      menuButtons[6].update();      //Limite forzado
+      menuButtons[6].display();
       for(int i=15;i<18;i++){
         contenidoButtons[i].display();
         contenidoButtons[i].update();
@@ -1415,11 +1417,9 @@ void draw(){
       fill(98);
       text("Estamos viviendo - verbo cantar 3ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
       textAlign(CENTER);
-      
-      for(int i=6;i<=7;i++){
-        menuButtons[i].update();
-        menuButtons[i].display();
-      }
+
+      menuButtons[6].update();      //Limite forzado
+      menuButtons[6].display();
       for(int i=15;i<18;i++){
        contenidoButtons[i].display();
        contenidoButtons[i].update();
@@ -1914,11 +1914,9 @@ void draw(){
       fill(98);
       text("Estamos viviendo - verbo cantar 3ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
       textAlign(CENTER);
-      
-      for(int i=6;i<=7;i++){
-        menuButtons[i].update();
-        menuButtons[i].display();
-      }
+
+      menuButtons[6].update();      //Limite forzado
+      menuButtons[6].display();
       for(int i=15;i<18;i++){
        contenidoButtons[i].display();
        contenidoButtons[i].update();
@@ -2412,11 +2410,9 @@ void draw(){
       fill(98);
       text("Estamos viviendo - verbo cantar 3ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
       textAlign(CENTER);
-      
-      for(int i=6;i<=7;i++){
-        menuButtons[i].update();
-        menuButtons[i].display();
-      }
+
+      menuButtons[6].update();      //Limite forzado
+      menuButtons[6].display();
       for(int i=15;i<18;i++){
        contenidoButtons[i].display();
        contenidoButtons[i].update();
@@ -2921,10 +2917,8 @@ void draw(){
       text("Estamos viviendo - verbo cantar 3ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
       textAlign(CENTER);
       
-      for(int i=6;i<=7;i++){
-        menuButtons[i].update();
-        menuButtons[i].display();
-      }
+      menuButtons[6].update();      //Limite forzado
+      menuButtons[6].display();
       for(int i=15;i<18;i++){
        contenidoButtons[i].display();
        contenidoButtons[i].update();
