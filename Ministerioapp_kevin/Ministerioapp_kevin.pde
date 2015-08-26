@@ -38,7 +38,6 @@ PImage[] jaqaru_base = new PImage[10];
 
 ImageButtons[] menuButtons = new ImageButtons[n+4];
 ImageButtons[] contenidoButtons = new ImageButtons[m*6];
-float[] alfa = new float[n];
 
 SqButtons[] submenuButtons = new SqButtons[36];
 String[] submenu = {"Saludándonos","Conociéndonos","Estamos viviendo","Madre tierra","Animales","Cantemos"}; 
@@ -80,9 +79,7 @@ void setup(){
   
   for(int i=0;i<file.length;i++){
     file[i]=loadImage("lengua"+str(i)+".png");
-    alfa[i]=anchoGlobal/(8*file[i].width);
   }
-  
   ALFA = anchoGlobal/(8*file[0].width);  //file[0].width & file[0].height standar
   float ALFA_width = ALFA*file[0].width;
   float ALFA_height = ALFA*file[0].height;
@@ -146,7 +143,7 @@ void draw(){
           background(69,90,140);
           imageMode(CORNER);
           for(int i=0;base_fondo.width*ALFA*i<=anchoGlobal;i++){
-          image(base_fondo,base_fondo.width*ALFA*i,altoGlobal-(base_fondo.height*ALFA),base_fondo.width*ALFA,base_fondo.height*ALFA);
+            image(base_fondo,base_fondo.width*ALFA*i,altoGlobal-(base_fondo.height*ALFA),base_fondo.width*ALFA,base_fondo.height*ALFA);
           }
           imageMode(CENTER);
           image(imagenMin,anchoGlobal/2,altoGlobal/4,imagenMin.width*anchoGlobal/800,imagenMin.height*anchoGlobal/800);
@@ -156,15 +153,15 @@ void draw(){
             menuButtons[i].display();
           }
           float ALFA_base_fondo = (base_fondo.width*ALFA);
-          fill(50,200);
+          float teta[] = {0.85,0.85,0.9,0.8,1.1,0.6};
+          //fill(50,200);
           rectMode(CENTER);
-          rect(3*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.85*anchoGlobal/8, 33, 10); rect(5*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.85*anchoGlobal/8, 33, 10);
-          rect(7*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.9*anchoGlobal/8, 33, 10); rect(9*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.8*anchoGlobal/8, 33, 10);
-          rect(11*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 1.1*anchoGlobal/8, 33, 10); rect(13*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.6*anchoGlobal/8, 33, 10);
-          fill(255);
           textAlign(CENTER, TOP);
           textFont(fontMenu,int(altoGlobal/16));
           for(int i=0;i<6;i++){
+            fill(50,200);
+            rect((3+2*i)*anchoGlobal/16 , altoGlobal-0.9*ALFA_base_fondo+2 , teta[i]*anchoGlobal/8 , 33, 10);
+            fill(255);
             text(lenguas[i],int((3+2*i)*anchoGlobal/16),int(altoGlobal-(base_fondo.width*ALFA)));
           }
           textAlign(CENTER);
@@ -606,22 +603,48 @@ void draw(){
       break;
     case 36:   // Submenú || Aymara || Animales || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 37:   // Submenú || Aymara || Animales || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 38:   // Submenú || Aymara || Animales || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       menuButtons[6].update();
       menuButtons[6].display();
+      
+      contenidoButtons[4].display();
+      contenidoButtons[4].update();
       break;
     case 39:   // Submenú || Aymara || Cantemos || 1
       background(255);
@@ -1083,22 +1106,48 @@ void draw(){
       break;
     case 75:   // Submenú || Jaqaru || Animales || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 76:   // Submenú || Jaqaru || Animales || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 77:   // Submenú || Jaqaru || Animales || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       menuButtons[6].update();
       menuButtons[6].display();
+      
+       contenidoButtons[4].display();
+       contenidoButtons[4].update();
       break;
     case 78:   // Submenú || Jaqaru || Cantemos || 1
       background(255);
@@ -1565,22 +1614,48 @@ void draw(){
       break;
     case 114:  // Submenú || Quechua || Animales || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 115:  // Submenú || Quechua || Animales || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 116:  // Submenú || Quechua || Animales || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       menuButtons[6].update();
       menuButtons[6].display();
+      
+      contenidoButtons[4].display();
+      contenidoButtons[4].update();
       break;
     case 117:  // Submenú || Quechua || Cantemos || 1
       background(255);
@@ -2038,22 +2113,48 @@ void draw(){
       break;
     case 153:  // Submenú || Shipibo || Animales || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 154:  // Submenú || Shipibo || Animales || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 155:  // Submenú || Shipibo || Animales || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       menuButtons[6].update();
       menuButtons[6].display();
+      
+      contenidoButtons[4].display();
+      contenidoButtons[4].update();
       break;
     case 156:  // Submenú || Shipibo || Cantemos || 1
       background(255);
@@ -2510,22 +2611,48 @@ void draw(){
       break;
     case 192:  // Submenú || Matsiguenka || Animales || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 193:  // Submenú || Matsiguenka || Animales || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 194:  // Submenú || Matsiguenka || Animales || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       menuButtons[6].update();
       menuButtons[6].display();
+      
+      contenidoButtons[4].display();
+      contenidoButtons[4].update();
       break;
     case 195:  // Submenú || Matsiguenka || Cantemos || 1
       background(255);
@@ -2992,22 +3119,48 @@ void draw(){
       break;
     case 231:  // Submenú || Yine || Animales || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 232:  // Submenú || Yine || Animales || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 233:  // Submenú || Yine || Animales || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Animales",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
       menuButtons[6].update();
       menuButtons[6].display();
+      
+      contenidoButtons[4].display();
+      contenidoButtons[4].update();
       break;
     case 234:  // Submenú || Yine || Cantemos || 1
       background(255);
@@ -3037,6 +3190,7 @@ void draw(){
   }
 }
 
+
 //audio
 /*void saludandonosa(){
   a01 = new APMediaPlayer(this); //create new APMediaPlayer
@@ -3045,11 +3199,9 @@ void draw(){
   a01.setVolume(1.0, 1.0);  
 }
 public void onDestroy() {
-
   super.onDestroy(); //call onDestroy on super class
   if(a01!=null) { //must be checked because or else crash when return from landscape mode
     a01.release(); //release the player
-
   }
 }*/
 public void onDestroy() {

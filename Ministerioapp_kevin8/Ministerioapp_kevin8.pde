@@ -38,7 +38,6 @@ PImage[] jaqaru_base = new PImage[10];
 
 ImageButtons[] menuButtons = new ImageButtons[n+4];
 ImageButtons[] contenidoButtons = new ImageButtons[m*6];
-float[] alfa = new float[n];
 
 SqButtons[] submenuButtons = new SqButtons[36];
 String[] submenu = {"Saludándonos","Conociéndonos","Estamos viviendo","Madre tierra","Animales","Cantemos"}; 
@@ -80,9 +79,7 @@ void setup(){
   
   for(int i=0;i<file.length;i++){
     file[i]=loadImage("lengua"+str(i)+".png");
-    alfa[i]=anchoGlobal/(8*file[i].width);
   }
-  
   ALFA = anchoGlobal/(8*file[0].width);  //file[0].width & file[0].height standar
   float ALFA_width = ALFA*file[0].width;
   float ALFA_height = ALFA*file[0].height;
@@ -146,7 +143,7 @@ void draw(){
           background(69,90,140);
           imageMode(CORNER);
           for(int i=0;base_fondo.width*ALFA*i<=anchoGlobal;i++){
-          image(base_fondo,base_fondo.width*ALFA*i,altoGlobal-(base_fondo.height*ALFA),base_fondo.width*ALFA,base_fondo.height*ALFA);
+            image(base_fondo,base_fondo.width*ALFA*i,altoGlobal-(base_fondo.height*ALFA),base_fondo.width*ALFA,base_fondo.height*ALFA);
           }
           imageMode(CENTER);
           image(imagenMin,anchoGlobal/2,altoGlobal/4,imagenMin.width*anchoGlobal/800,imagenMin.height*anchoGlobal/800);
@@ -156,15 +153,19 @@ void draw(){
             menuButtons[i].display();
           }
           float ALFA_base_fondo = (base_fondo.width*ALFA);
-          fill(50,200);
+          float teta[] = {0.85,0.85,0.9,0.8,1.1,0.6};
+          //fill(50,200);
           rectMode(CENTER);
-          rect(3*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.85*anchoGlobal/8, 33, 10); rect(5*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.85*anchoGlobal/8, 33, 10);
-          rect(7*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.9*anchoGlobal/8, 33, 10); rect(9*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.8*anchoGlobal/8, 33, 10);
-          rect(11*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 1.1*anchoGlobal/8, 33, 10); rect(13*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.6*anchoGlobal/8, 33, 10);
-          fill(255);
+          //rect(3*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.85*anchoGlobal/8, 33, 10); rect(5*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.85*anchoGlobal/8, 33, 10);
+          //rect(7*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.9*anchoGlobal/8, 33, 10); rect(9*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.8*anchoGlobal/8, 33, 10);
+          //rect(11*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 1.1*anchoGlobal/8, 33, 10); rect(13*anchoGlobal/16, altoGlobal-0.9*ALFA_base_fondo+2, 0.6*anchoGlobal/8, 33, 10);
+          
           textAlign(CENTER, TOP);
           textFont(fontMenu,int(altoGlobal/16));
           for(int i=0;i<6;i++){
+            fill(50,200);
+            rect((3+2*i)*anchoGlobal/16 , altoGlobal-0.9*ALFA_base_fondo+2 , teta[i]*anchoGlobal/8 , 33, 10);
+            fill(255);
             text(lenguas[i],int((3+2*i)*anchoGlobal/16),int(altoGlobal-(base_fondo.width*ALFA)));
           }
           textAlign(CENTER);

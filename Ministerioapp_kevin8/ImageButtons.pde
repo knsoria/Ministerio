@@ -72,11 +72,11 @@ class ImageButtons extends Button {
         switch(posicion){
           case 0:
             x = int(anchoGlobal/5);
-            y = int(altoGlobal/5);
+            y = int(altoGlobal/3.5);
             break;
           case 1:
             x = int(anchoGlobal/2);
-            y = int(altoGlobal/5);
+            y = int(altoGlobal/3.5);
             break;
         }
         break;
@@ -205,7 +205,7 @@ class ImageButtons extends Button {
   }
   
   void over(){
-    if( modo == 3 ){
+    if( objetos == 1 ){
       if( overRect(x, y, w/2, h) ) { over = true; }
       else { over = false; }
     }
@@ -218,8 +218,14 @@ class ImageButtons extends Button {
   void display(){
     image(currentimage, x, y, w, h);
     fill(0);
-    textFont(fontsubMenu,int(altoGlobal/30));
-    text(currenttexto,x+anchoGlobal/8,y+altoGlobal/60);
+    textFont(fontsubMenu,int(altoGlobal/25));
+    if(objetos == 2){
+      text(currenttexto,x+anchoGlobal/8,y-altoGlobal/30);
+    }
+    else{
+      text(currenttexto,x+anchoGlobal/8,y+altoGlobal/60);
+    }
+    
     
   }
 }
