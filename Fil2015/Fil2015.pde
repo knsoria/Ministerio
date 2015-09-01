@@ -146,13 +146,13 @@ void draw(){
           imageMode(CORNER);
           float omega = (altoGlobal-(0.9*base_fondo.height*ALFA))/cielo_fondo.height;
           for(int i=0;cielo_fondo.width*i<=anchoGlobal;i++){
-            image(cielo_fondo,cielo_fondo.width*i,0,cielo_fondo.width,cielo_fondo.height*omega);
+            image(cielo_fondo,cielo_fondo.width*i,0,cielo_fondo.width+1,cielo_fondo.height*omega);
           }
           for(int i=0;base_fondo.width*ALFA*i<=anchoGlobal;i++){
             image(base_fondo,base_fondo.width*ALFA*i,altoGlobal-(base_fondo.height*ALFA),base_fondo.width*ALFA,base_fondo.height*ALFA);
           }
           imageMode(CENTER);
-          float tau = (0.9*anchoGlobal)/imagenMin.width;
+          float tau = (0.90*anchoGlobal)/imagenMin.width;
           image(imagenMin,anchoGlobal/2,altoGlobal/4,imagenMin.width*tau,imagenMin.height*tau);
           imageMode(CORNER);
           for(int i=0;i<6;i++){
